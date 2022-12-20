@@ -5,7 +5,7 @@ const Product=require("../src/Models/product.model")
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const cors = require("cors");
-dotenv.config({path:`./.env`}); 
+dotenv.config(); 
 mongoose.set('strictQuery', false)
 const PORT = process.env.PORT || 4000;
 app.use(cors())
@@ -18,16 +18,16 @@ const start = async () => {
         }, () => { 
             console.log("connected to db")
         });
-        app.listen(process.env.PORT, async () => { 
+        app.listen(PORT, async () => { 
             
-            console.log(`listening at port ${PORT}`);
+            console.log(`listening at port 4000`);
         })
     } catch (error) { 
         console.log(error.message);
     }
 }
 start();
-app.use("/", async () => { 
+app.use("/", async (req,res) => { 
     try {
         const products = await Product.find({});
         res.send({products})
