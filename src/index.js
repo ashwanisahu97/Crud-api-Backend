@@ -1,5 +1,7 @@
 const express = require("express");
 const app = express();
+const mongoose = require("mongoose");
+mongoose.connect("mongodb+srv://ashwanisahu:ypUvdiq1X3uuyr4R@crudapisdata.w6tbrvs.mongodb.net/crudCluster?retryWrites=true&w=majority&appName=crudApisData").then(()=>{console.log("mongodb is connected")})
 // const connect = require("./Configs/db")
 // const Product=require("../src/Models/product.model")
 // const mongoose = require("mongoose");
@@ -36,7 +38,7 @@ const app = express();
 //     }
 // })
 // console.log("app",app)
-
+app.use("/login",)
 const port = 5050;
 app.get('/',async(req,res)=>{
     res?.send("Hello, world!,how are you all");
