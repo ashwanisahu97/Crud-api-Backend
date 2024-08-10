@@ -58,6 +58,12 @@ app.get("/", async (req, res) => {
         res?.status(500).json({message:error?.message})
     }
 });
+app.get("/products/api/:id",async(req,res)=>{
+    const {id} = req?.params
+    console.log("request params:",req?.params);
+    const product=await Product.findById(id);
+    res?.status(200).json(product);
+})
 app.post("/api/products", async (req, res) => {
   try {
     const product = await Product?.create(req?.body);
