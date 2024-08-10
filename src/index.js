@@ -49,15 +49,15 @@ mongoose
 // })
 // console.log("app",app)
 
-// app.get("/", async (req, res) => {
-//     try{
-//         const product = await Product?.find({});
-//         console.log("product",product);
-//         res?.status(200).json(product);
-//     }catch(error){
-//         res?.status(500).json({message:error?.message})
-//     }
-// });
+app.get("/", async (req, res) => {
+    try{
+        const product = await Product?.find({});
+        console.log("product",product);
+        res?.status(200).json(product);
+    }catch(error){
+        res?.status(500).json({message:error?.message})
+    }
+});
 app.post("/api/products", async (req, res) => {
   try {
     const product = await Product?.create(req?.body);
